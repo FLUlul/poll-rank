@@ -14,20 +14,24 @@ let challeges = [
     'ImportFileIntoDb',
 ]
 
+let positions = [];
+positions.length = partecipants.length;
+
+
 $(partecipants).each(function(index, partecipant) {
-    $('#userName').append(`
+    $('#userNames').append(`
         <option value="${partecipant}">${partecipant}</option>
     `);
 });
 $(challeges).each(function(index, chellenge) {
-    $('#challenge').append(`
+    $('#challenges').append(`
         <option value="${chellenge}">${index+1} - ${chellenge}</option>
     `);
 });
 
 $("#sendBtn").click(function() {
-    let userValue = $('#userName').val().toLowerCase();
-    let challengeValue = $('#challenge').val();
+    let userValue = $('#userNames').val().toLowerCase();
+    let challengeValue = $('#challenges').val();
 
     $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);
     $('#form_container').html('');
@@ -39,10 +43,20 @@ $("#sendBtn").click(function() {
         if (partecipant.toLowerCase() !== userValue) {
             $('#votation').append(`
             <label>${partecipant}</label>
-            <input name="${partecipant}" type="number" min="1" max="${partecipants.length}" placeholder="Posizione">
+
+            <select name="${partecipant}" class="positions">
+                <option value="" disabled selected hidden>Posizione</option>
+            </select>
             `);
         }
     });
+
+    $(positions).each(function(index){
+        $('.positions').append(`
+            <option value="${index+1}">${index+1}&deg;</option>
+        `)
+    });
+
     $('#votation').append('<button type="submit">invia</button>');
     
     /* let classifica = {

@@ -10,12 +10,11 @@ if (!is_file($challenge)) {
     mkdir($challenge . '/', 0755, true);
 };
 
-echo $user;
-echo $challenge;
-
+$actual_link = "http://$_SERVER[HTTP_HOST]";
+echo $actual_link . '/';die;
+/* print_r($actual_link);die; */
 if($_GET['savePoll']) {
     $data = json_encode($_POST);
     file_put_contents($challenge . '/' . $file, $data);
+    header("location: ". $actual_link);
 }
-
-/* print_r($_POST); */

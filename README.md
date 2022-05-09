@@ -11,3 +11,4 @@ Salvare i dati nel local storage o sse in un file.
 In un altra rotta salvare e  fare il conteggio dei risultati di ogni partecipante
     prendiamo ogni risultato e in base all’ordinamento assegnamo un valore
     Dobbiamo inserire un bottone  per resettare le votazioni.
+Opzione di visualizare classifica generale.
