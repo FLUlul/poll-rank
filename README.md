@@ -3,6 +3,7 @@ Custom poll rank
 
 <!-- Steps -->
 Inserisci il tuo nome.
+Inserisci il nome della challenge.
     Si crea una nuova rotta dopo questo "Login".
 Scegliere i partecipanti (optional).
 Ordinare i partecipanti dal primo all’ultimo (drag and drop o Number).

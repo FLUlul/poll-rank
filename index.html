@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/script.js" defer></script>
     <title>Poll Rank</title>
 </head>
 <body>
+    <div class="container">
+        <input type="text" placeholder="Tuo Nome" id="userName">
+        <input type="text" placeholder="Challenge" id="challenge">
+        <button id="sendBtn">Invia</button>
+    </div>
     
-    <input type="text" placeholder="Inserisci il tuo nome">
-
+    <div id="form_container"></div>
 </body>
 </html>
