@@ -12,11 +12,17 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" placeholder="Tuo Nome" id="userName">
-        <input type="text" placeholder="Challenge" id="challenge">
+        <select name="userName" id="userName">
+            <option value="" disabled selected hidden>Tuo Nome</option>
+        </select>
+
+        <select name="challenge" id="challenge">
+            <option value="" disabled selected hidden>Challenge</option>
+        </select>
+
         <button id="sendBtn">Invia</button>
     </div>
-    
+
     <div id="form_container"></div>
 </body>
 </html>

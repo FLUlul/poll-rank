@@ -1,32 +1,49 @@
+let partecipants = [
+    'Valerio',
+    'Maurizio',
+    'Mario',
+    'Francesco',
+    'Samuele',
+    'Alberto',
+    'Daniele',
+    'Michele'
+]
+
+let challeges = [
+    'CloudWord',
+    'ImportFileIntoDb',
+]
+
+$(partecipants).each(function(index, partecipant) {
+    $('#userName').append(`
+        <option value="${partecipant}">${partecipant}</option>
+    `);
+});
+$(challeges).each(function(index, chellenge) {
+    $('#challenge').append(`
+        <option value="${chellenge}">${index+1} - ${chellenge}</option>
+    `);
+});
+
 $("#sendBtn").click(function() {
     let userValue = $('#userName').val().toLowerCase();
-    let challengeValue = $('#challenge').val().toLowerCase();
-    challengeValue = challengeValue.replace(/\s+/g, '_');
+    let challengeValue = $('#challenge').val();
 
     $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);
-
-    let partecipants = [
-        'Valerio',
-        'Maurizio',
-        'Mario',
-        'Francesco',
-        'Samuele',
-        'Alberto',
-        'Daniele',
-        'Michele'
-    ]
-    
+    $('#form_container').html('');
     $('#form_container').append(`
         <form action="server.php?savePoll=true&user=${userValue}&challenge=${challengeValue}" method="post" id="votation"></form>
     `);
 
     $(partecipants).each(function(index, partecipant) {
-        $('#votation').append(`
-        <label>${partecipant}</label>
-        <input name="${partecipant}" type="number" min="1" max="${partecipants.length}" placeholder="Posizione">
-        `);
+        if (partecipant.toLowerCase() !== userValue) {
+            $('#votation').append(`
+            <label>${partecipant}</label>
+            <input name="${partecipant}" type="number" min="1" max="${partecipants.length}" placeholder="Posizione">
+            `);
+        }
     });
-    $('#votation').append('<button type="submit">invia</button>')
+    $('#votation').append('<button type="submit">invia</button>');
     
     /* let classifica = {
         'valerio' : 1,
@@ -40,6 +57,4 @@ $("#sendBtn").click(function() {
         /* console.log(res.data); */
     })
     .catch(e => console.error(e));
-
-
 });
