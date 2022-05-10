@@ -71,6 +71,17 @@ $("#sendBtn").click(function() {
             </div>
             `);
         }
+        if (partecipant.toLowerCase() == userValue) {
+            $('#votation').append(`
+            <div class='d-none'>
+                <label>${partecipant}</label>
+
+                <select name="${partecipant}" class="positions">
+                    <option value="" selected >Posizione</option>
+                </select>
+            </div>
+            `);
+        }
     });
 
     $(positions).each(function(index){
