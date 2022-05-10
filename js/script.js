@@ -1,7 +1,5 @@
-class Poll {
-
-}
-
+/* Dichiaro i partecipanti */
+/* todo => trasformare in array di oggetti con true se parecipa false se non partecipa in modo dinamico sulla select */
 let partecipants = [
     'Valerio',
     'Maurizio',
@@ -13,6 +11,7 @@ let partecipants = [
     'Michele'
 ]
 
+/* Dichiaro le sfide */
 let challeges = [
     {
         'key' : 'CloudWord', 
@@ -28,7 +27,7 @@ let challeges = [
     },
 ]
 
-
+/* Dichiaro il numero di posizioni - 1 (perche' tu non conti)*/
 let positions = [];
 positions.length = partecipants.length - 1;
 
@@ -63,11 +62,13 @@ $("#sendBtn").click(function() {
     $(partecipants).each(function(index, partecipant) {
         if (partecipant.toLowerCase() !== userValue) {
             $('#votation').append(`
-            <label>${partecipant}</label>
+            <div>
+                <label>${partecipant}</label>
 
-            <select name="${partecipant}" class="positions">
-                <option value="" selected >Posizione</option>
-            </select>
+                <select name="${partecipant}" class="positions">
+                    <option value="" selected >Posizione</option>
+                </select>
+            </div>
             `);
         }
     });
@@ -95,7 +96,7 @@ $("#sendBtn").click(function() {
         });
     });
 
-    $('#votation').append('<button type="submit">invia</button>');
+    $('#votation').append('<button type="submit">Invia</button>');
     /* let url = window.location.href + 'server.php/'; */
 
     axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
@@ -103,4 +104,6 @@ $("#sendBtn").click(function() {
         /* console.log(res.data); */
     })
     .catch(e => console.error(e));
+
+    $(".login").hide();
 });
