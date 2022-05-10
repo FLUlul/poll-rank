@@ -1,4 +1,5 @@
 <?php
+require_once 'host.php';
 
 $user        = $_GET ['user'];
 $challenge   = $_GET ['challenge'];
@@ -11,11 +12,8 @@ if (!is_file($challenge)) {
     mkdir($folder . '/', 0755, true);
 };
 
-$actual_link = "http://$_SERVER[HTTP_HOST]";
-$LOCALONLY_redirect_link = $actual_link . "/Projects_Tests/poll-rank/score_board.php";
-/* print_r($actual_link);die; */
 if($_GET['savePoll']) {
     $data = json_encode($_POST);
     file_put_contents($folder . '/' . $file, $data);
-    header("location: ". $LOCALONLY_redirect_link);
+    header("location: ". HOST);
 }
