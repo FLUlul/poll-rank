@@ -96,7 +96,7 @@ $("#sendBtn").click(function() {
         });
     });
 
-    $('#votation').append('<button type="submit">Invia</button>');
+    $('#votation').append('<button type="submit" class="btn">Invia</button>');
     /* let url = window.location.href + 'server.php/'; */
 
     axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
