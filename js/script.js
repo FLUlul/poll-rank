@@ -15,7 +15,7 @@ let challeges = [
 ]
 
 let positions = [];
-positions.length = partecipants.length;
+positions.length = partecipants.length - 1;
 
 
 $(partecipants).each(function(index, partecipant) {
@@ -45,7 +45,7 @@ $("#sendBtn").click(function() {
             <label>${partecipant}</label>
 
             <select name="${partecipant}" class="positions">
-                <option value="" disabled selected hidden>Posizione</option>
+                <option value="" selected >Posizione</option>
             </select>
             `);
         }
@@ -55,6 +55,23 @@ $("#sendBtn").click(function() {
         $('.positions').append(`
             <option value="${index+1}">${index+1}&deg;</option>
         `)
+    });
+
+    $('.positions').change(function() {
+        $(this).attr('id', $(this).val());
+        var allSelects = document.querySelectorAll(".positions");
+        let selected = [];
+        $(allSelects).each(function(index, select) {
+            if (!selected.includes(select.id)) {
+                selected.push(select.id);
+            }
+            if (!selected.includes($('.positions option[style="display: none;"]').val())) {
+                $('.positions option[style="display: none;"]').show();
+            }
+            if (selected.includes(select.id)) {
+                $('.positions option[value="' + select.id + '"]').hide();
+            }
+        });
     });
 
     $('#votation').append('<button type="submit">invia</button>');
