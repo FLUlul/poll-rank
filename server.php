@@ -12,10 +12,10 @@ if (!is_file($challenge)) {
 };
 
 $actual_link = "http://$_SERVER[HTTP_HOST]";
-$redirect_link = $actual_link . "/Projects_Tests/poll-rank/score_board.php";
+$LOCALONLY_redirect_link = $actual_link . "/Projects_Tests/poll-rank/score_board.php";
 /* print_r($actual_link);die; */
 if($_GET['savePoll']) {
     $data = json_encode($_POST);
     file_put_contents($folder . '/' . $file, $data);
-    header("location: ". $redirect_link);
+    header("location: ". $LOCALONLY_redirect_link);
 }

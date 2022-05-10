@@ -1,3 +1,7 @@
+class Poll {
+
+}
+
 let partecipants = [
     'Valerio',
     'Maurizio',
@@ -10,23 +14,40 @@ let partecipants = [
 ]
 
 let challeges = [
-    'CloudWord',
-    'ImportFileIntoDb',
+    {
+        'key' : 'CloudWord', 
+        'value' : false,
+    },
+    {
+        'key' : 'ImportFileIntoDb',
+        'value' : false,
+    },
+    {
+        'key' : 'noname',
+        'value' : true,
+    },
 ]
+
 
 let positions = [];
 positions.length = partecipants.length - 1;
-
 
 $(partecipants).each(function(index, partecipant) {
     $('#userNames').append(`
         <option value="${partecipant}">${partecipant}</option>
     `);
 });
-$(challeges).each(function(index, chellenge) {
-    $('#challenges').append(`
-        <option value="${chellenge}">${index+1} - ${chellenge}</option>
+
+$(challeges).each(function(index, value) {
+    if (value.value) {
+        $('#challenges').append(`
+            <option value="${value.key}">${index+1} - ${value.key}</option>
+        `);
+    } else {
+        $('#challenges').append(`
+        <option value="${value.key}" disabled>${index+1} - ${value.key}</option>
     `);
+    }
 });
 
 $("#sendBtn").click(function() {
@@ -75,12 +96,6 @@ $("#sendBtn").click(function() {
     });
 
     $('#votation').append('<button type="submit">invia</button>');
-    
-    /* let classifica = {
-        'valerio' : 1,
-        'maurizio' : 2,
-        'mario' : 3,
-    } */
     /* let url = window.location.href + 'server.php/'; */
 
     axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
