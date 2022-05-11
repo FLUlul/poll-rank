@@ -29,6 +29,8 @@ if (!is_file($allTime . $challenge)) {
 $data = json_encode($dashBoard);
 file_put_contents($allTime . $challenge . '.json', $data);
 
+
+
 function points(array $array) {
   foreach ($array as $key => $value) {
       if($value == 1) {
