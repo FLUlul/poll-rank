@@ -15,5 +15,5 @@ if (!is_file($challenge)) {
 if($_GET['savePoll']) {
     $data = json_encode($_POST);
     file_put_contents($folder . '/' . $file, $data);
-    header("location: ". HOST . '?challenge=' . $challenge);
+    header("location: ". SCOREBOARD . '?challenge=' . $challenge);
 }

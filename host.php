@@ -1,9 +1,12 @@
 <?php
 $actual_link = "http://$_SERVER[HTTP_HOST]";
 if (strpos($actual_link, 'localhost')) {
-    $host = $actual_link . "/poll-rank/score_board.php";
+    $home = $actual_link . "/poll-rank/index.php?route=home";
+    $scoreboard = $actual_link . "/poll-rank/index.php?route=scorboard";
 } else {
-    $host = $actual_link;
+    $scoreboard = $actual_link;
+    $home = $actual_link;
 }
 
-define(HOST, $host);
+define(HOME, $home);
+define(SCOREBOARD, $scoreboard);
