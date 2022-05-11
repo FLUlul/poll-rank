@@ -108,6 +108,10 @@ $("#sendBtn").click(function() {
     });
 
     $('#votation').append('<button type="submit" class="btn">Invia</button>');
+    $('.container').append('<button id="refresh" class="btn">&#8635;</button>');
+    $('#refresh').click(function() {
+        location.reload();
+    });
     /* let url = window.location.href + 'server.php/'; */
 
     axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
