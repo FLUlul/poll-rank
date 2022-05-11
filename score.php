@@ -3,7 +3,8 @@
 $challenge = $_GET['challenge'];
 
 $folder    = 'polls/' . $challenge;
-$scan = scandir("$folder/");
+$allTime   = 'polls/alltime/';
+$scan      = scandir("$folder/");
 $dashBoard = [];
 
 foreach($scan as $file) {
@@ -21,6 +22,12 @@ foreach($scan as $file) {
 
 arsort($dashBoard);
 
+if (!is_file($allTime . $challenge)) {
+  mkdir($allTime . '/', 0755, true);
+};
+
+$data = json_encode($dashBoard);
+file_put_contents($allTime . $challenge . '.json', $data);
 
 function points(array $array) {
   foreach ($array as $key => $value) {
