@@ -14,12 +14,12 @@ let partecipants = [
 /* Dichiaro le sfide */
 let challeges = [
     {
-        'key' : 'CloudWord', 
+        'key' : 'CloudWord',
         'value' : false,
     },
     {
         'key' : 'ImportFileIntoDb',
-        'value' : false,
+        'value' : true,
     },
     {
         'key' : 'noname',

@@ -19,8 +19,8 @@
     <title>Poll Rank</title>
 
     <?php
-        require 'server.php';
-        require 'score.php';
+        require_once 'host.php';
+        include 'score.php';
     ?>
 
 </head>
@@ -29,8 +29,6 @@
     <div class="container">
         <!-- se non esiste la rotta -->
         <?php if(!isset($_GET['route'])) {
-
-            // echo HOME .  '<br>' . SCOREBOARD;
             header("location: ". HOME);
         }
         ?>
@@ -51,7 +49,26 @@
 
             <div id="form_container"></div>
         <?php } else {?>
-            <?php  echo $ciao ?>
+
+
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align:center; border: none; padding-top: 5rem;">
+                    <?php  echo $challenge?>
+                    <a href="<?php  echo HOME ?>">HOME</a>
+                    </th>
+                </tr>
+                <?php foreach ($dashBoard as $key => $value) { ?>
+                    <tr>
+                        <th>
+                            <?php echo $key ?>
+                        </th>
+                        <td>
+                        <?php echo $value ?>
+                        </td>
+                    </tr>
+                <?php }?>
+            </table>
         <?php } ?>
     </div>
 </body>

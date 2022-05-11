@@ -1,3 +1,7 @@
+:root {
+    --blue : rgba(0, 51, 145, 1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -57,7 +61,7 @@ select {
 .btn:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: rgba(0, 51, 145, 1);
+    background-color: var(--blue);
     border: solid 3px white;
     color: white;
 }
@@ -90,4 +94,33 @@ h1 {
     h1 {
         font-size: 3rem;
     }
+}
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f200;}
+
+table tr:hover {background-color: rgba(221, 221, 221, 0.35);}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f200;
+    color: white;
+}
+
+table td {
+    text-align: center;
+    color : white;
+    font-weight: 800;
 }

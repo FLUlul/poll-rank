@@ -3,10 +3,9 @@
 $challenge = $_GET['challenge'];
 
 $folder    = 'polls/' . $challenge;
-$data = [];
 $scan = scandir("$folder/");
+$dashBoard = [];
 
-$i = 0;
 foreach($scan as $file) {
     if (!is_dir("$folder/$file")) {
        $content = file_get_contents("$folder/$file");
@@ -15,13 +14,15 @@ foreach($scan as $file) {
        $array = points($array);
 
        foreach ($array as $key => $value) {
-          $people [$key] += $value;
-       };
+          $dashBoard [$key] += $value;
+        };
+      }
     }
- }
-$ciao = 'ciaooooo';
-// echo 'aaa';
- function points(array $array) {
+
+arsort($dashBoard);
+
+
+function points(array $array) {
   foreach ($array as $key => $value) {
       if($value == 1) {
         $array[$key] = 7;
