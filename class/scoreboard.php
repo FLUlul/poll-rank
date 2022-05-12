@@ -27,9 +27,7 @@ class Scoreboard {
             $array = get_object_vars($content);
             $array = $this->points($array);
             foreach ($array as $key => $value) {
-                if ($value == '') {
-                    $value = 0;
-                }
+                $value = $value == '' ? 0 : $value;
                 $dashBoard[$key] += $value;
             };
         }
