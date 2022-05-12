@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <?php
-    require_once 'host.php';
-    include 'score.php';
     require 'loader.php';
+    $loader = new loader();
 
-    $loader = new Loader();
+    if (is_file($loader->controller_path)) {
+        include($loader->controller_path);
+        $controller = new $loader->route;
+    }
+
     ?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

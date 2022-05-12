@@ -14,3 +14,4 @@ define('HOME', $home);
 define('SCOREBOARD', $scoreboard);
 define('VIEW_PATH', 'view/');
 define('CSS_PATH', 'css/');
+define('CLASS_PATH' , 'class/');

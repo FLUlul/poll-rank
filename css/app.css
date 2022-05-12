@@ -19,8 +19,6 @@ body {
     justify-content: center;
     align-items: center;
     height:80vh;
-    /* z-index: 3; */
-    /* position: relative; */
 }
 
 .d-none {
