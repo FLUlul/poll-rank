@@ -1,4 +1,4 @@
-<h1>Poll Score</h1>
+<h1>Poll test</h1>
     <div class="container">
         <!-- se non esiste la rotta -->
         <?php if(!isset($_GET['route'])) {
