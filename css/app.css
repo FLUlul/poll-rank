@@ -34,6 +34,28 @@ h1 {
     text-shadow: 1px 1px 5px black;
 }
 
+.btn {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: all .5s;
+    border: solid 3px black;
+    color: black;
+    text-decoration: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: var(--blue);
+    border: solid 3px white;
+    color: white;
+}
+
+.btn:active {
+    transform: scale(.3);
+}
+
 @media all and (max-width:1000px) {
     h1 {
         font-size: 5rem;

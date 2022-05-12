@@ -31,7 +31,7 @@
 </head>
 <body>
     <h1>
-        POLL SCORE.
+        POLL SCORE
     </h1>
     <div class="container">
     <?php include($loader->view_path); ?>

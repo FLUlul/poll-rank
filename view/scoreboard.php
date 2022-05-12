@@ -1,12 +1,11 @@
 <table>
     <tr>
-        <th colspan="2" style="text-align:center; border: none; padding-top: 5rem;">
-        <?php  echo $controller->challenge?>
-        <a href="<?php  echo HOME ?>">HOME</a>
+        <th colspan="2" style="text-align:center; border: none;">
+            <?php  echo $controller->challenge?>
         </th>
     </tr>
     <?php foreach ($controller->dashBoard as $key => $value) { ?>
-        <tr>
+        <tr class="partecipant-row">
             <th>
                 <?php echo $key ?>
             </th>
@@ -16,3 +15,4 @@
         </tr>
     <?php }?>
 </table>
+<a class="btn" href="<?php  echo HOME ?>">Home</a>

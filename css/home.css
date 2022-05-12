@@ -29,27 +29,6 @@ select {
     border-radius: 10px;
 }
 
-.btn {
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 10px;
-    transition: all .5s;
-    border: solid 3px black;
-    color: black;
-}
-
-.btn:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    background-color: var(--blue);
-    border: solid 3px white;
-    color: white;
-}
-
-.btn:active {
-    transform: scale(.3);
-}
-
 #refresh {
     margin: 0 10px;
 }
