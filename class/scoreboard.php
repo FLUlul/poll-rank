@@ -26,12 +26,14 @@ class Scoreboard {
             $content = json_decode($content);
             $array = get_object_vars($content);
             $array = $this->points($array);
-
             foreach ($array as $key => $value) {
-                $dashBoard [$key] += $value;
-                };
-            }
-            }
+                if ($value == '') {
+                    $value = 0;
+                }
+                $dashBoard[$key] += $value;
+            };
+        }
+    }
 
         arsort($dashBoard);
 
