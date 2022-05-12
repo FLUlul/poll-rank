@@ -24,5 +24,4 @@ class Loader {
         $file = $_GET['route'];
         $this->css_path = CSS_PATH . $file . '.css';
     }
-
 }
