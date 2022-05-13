@@ -3,6 +3,10 @@
 $actual_link = "http://$_SERVER[HTTP_HOST]";
 
 if (strpos($actual_link, 'localhost')) {
+    $home = $actual_link . '/poll-rank/index.php?route=home';
+    $scoreboard = $actual_link . '/poll-rank/index.php?route=scoreboard';
+    $home = $actual_link . '/Projects_Tests/poll-rank/index.php?route=home';
+    $scoreboard = $actual_link . '/Projects_Tests/poll-rank/index.php?route=scoreboard';
     $alltime = $actual_link . '/Projects_Tests/poll-rank/index.php?route=alltime';
 } else {
     $home = $actual_link . '/index.php?route=home';
