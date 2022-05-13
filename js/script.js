@@ -31,22 +31,37 @@ let challeges = [
 let positions = [];
 positions.length = partecipants.length - 1;
 
+$('.btn-vote').click(function() {
+    $('.vote').toggleClass('d-none');
+    $('.btn-vote, .btn-scoreboard, .btn-totals').addClass('d-none');
+});
+$('.btn-scoreboard').click(function() {
+    $('.scoreboard').toggleClass('d-none');
+    $('.btn-vote, .btn-scoreboard, .btn-totals').addClass('d-none');
+});
+$('.btn-view').click(function() {
+    let href = $(this).attr('data-score');
+    let challengeVal = $('.scoreboard .challenges').val();
+    if (challengeVal !== null) {
+        window.location.href = href + '&challenge=' + challengeVal;
+    }
+});
 
-$(partecipants).each(function(index, partecipant) {
+    $(partecipants).each(function(index, partecipant) {
     createOption(partecipant, partecipant, '#userNames');
 });
 
 $(challeges).each(function(index, value) {
     if (value.value) {
-        createOption(`${index+1} - ${value.key}`, value.key, '#challenges');
+        createOption(`${index+1} - ${value.key}`, value.key, '.challenges');
     } else {
-        createOption(`${index+1} - ${value.key}`, value.key, '#challenges', false, true);
+        createOption(`${index+1} - ${value.key}`, value.key, '.challenges', false, true);
     }
 });
 
 $("#sendBtn").click(function() {
     let userValue = $('#userNames').val().toLowerCase();
-    let challengeValue = $('#challenges').val();
+    let challengeValue = $('.challenges').val();
 
     $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);
     $('#form_container').html('');
@@ -111,7 +126,7 @@ $("#sendBtn").click(function() {
     })
     .catch(e => console.error(e));
 
-    $(".login").hide();
+    $(".vote").hide();
 });
 
 /* FUNCTIONS */

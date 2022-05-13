@@ -36,12 +36,14 @@ h1 {
 
 .btn {
     padding: 10px;
+    margin: 0 5px;
     background-color: #fff;
     border-radius: 10px;
     transition: all .5s;
     border: solid 3px black;
     color: black;
     text-decoration: none;
+    display: inline-block;
 }
 
 .btn:hover {
