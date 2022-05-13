@@ -19,7 +19,7 @@ let challeges = [
     },
     {
         'key' : 'ImportFileIntoDb',
-        'value' : true,
+        'value' : false,
     },
     {
         'key' : 'noname',
@@ -31,21 +31,16 @@ let challeges = [
 let positions = [];
 positions.length = partecipants.length - 1;
 
+
 $(partecipants).each(function(index, partecipant) {
-    $('#userNames').append(`
-        <option value="${partecipant}">${partecipant}</option>
-    `);
+    createOption(partecipant, partecipant, '#userNames');
 });
 
 $(challeges).each(function(index, value) {
     if (value.value) {
-        $('#challenges').append(`
-            <option value="${value.key}">${index+1} - ${value.key}</option>
-        `);
+        createOption(`${index+1} - ${value.key}`, value.key, '#challenges');
     } else {
-        $('#challenges').append(`
-        <option value="${value.key}" disabled>${index+1} - ${value.key}</option>
-    `);
+        createOption(`${index+1} - ${value.key}`, value.key, '#challenges', false, true);
     }
 });
 
@@ -60,34 +55,29 @@ $("#sendBtn").click(function() {
     `);
 
     $(partecipants).each(function(index, partecipant) {
-        if (partecipant.toLowerCase() !== userValue) {
-            $('#votation').append(`
-            <div>
-                <label>${partecipant}</label>
+        let div = $('<div>');
+        let label = $('<label>');
+        let select = $('<select>');
+        let option = $('<option>');
 
-                <select name="${partecipant}" class="positions">
-                    <option value="" selected >Posizione</option>
-                </select>
-            </div>
-            `);
-        }
+        label.html(partecipant);
+        select.attr('name', partecipant);
+        select.addClass('positions');
+        option.attr('selected', true);
+        option.html('Position');
+        
+        div.append(label)
+        div.append(select);
+        select.append(option);
+        $('#votation').append(div);
+
         if (partecipant.toLowerCase() == userValue) {
-            $('#votation').append(`
-            <div class='d-none'>
-                <label>${partecipant}</label>
-
-                <select name="${partecipant}" class="positions">
-                    <option value="" selected >Posizione</option>
-                </select>
-            </div>
-            `);
+            div.addClass('d-none');
         }
     });
 
     $(positions).each(function(index){
-        $('.positions').append(`
-            <option value="${index+1}">${index+1}&deg;</option>
-        `)
+        createOption(`${index+1}&deg;`, index+1, '.positions');
     });
 
     $('.positions').change(function() {
@@ -107,7 +97,7 @@ $("#sendBtn").click(function() {
         });
     });
 
-    $('#votation').append('<button type="submit" class="btn">Invia</button>');
+    $('#votation').append('<button type="submit" class="btn">Send</button>');
     $('.container').append('<button id="refresh" class="btn">&#8635;</button>');
     $('#refresh').click(function() {
         location.reload();
@@ -122,3 +112,21 @@ $("#sendBtn").click(function() {
 
     $(".login").hide();
 });
+
+/* FUNCTIONS */
+function createOption(label, value, select, selected = false, disabled = false) {
+    let options = [];
+    let option = $('<option>');
+    option.val(value);
+    option.html(label);
+    option.attr('selected', selected);
+    option.attr('disabled', disabled);
+
+    options[value] = option;
+    updateSelect(select, options);
+}
+function updateSelect(select, options) {
+    for(let option in options) {
+        $(select).append(options[option]);
+    }
+}

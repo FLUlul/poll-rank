@@ -16,3 +16,4 @@
     <?php }?>
 </table>
 <a class="btn" href="<?php  echo HOME ?>">Home</a>
+<a class="btn" href="<?php  echo ALLTIME ?>">Totals</a>
