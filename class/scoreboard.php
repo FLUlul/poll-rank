@@ -1,20 +1,15 @@
 <?php
 
-class Scoreboard {
+class Scoreboard extends Route {
 
     public function __construct() {
 
-        $this->challenge();
-        $this->dashboard();
+      parent::__construct();
     }
 
-    public function challenge() {
+    public function dashboard(string $challenge) {
 
-        $this->challenge = $_GET['challenge'];
-    }
-
-    public function dashboard() {
-
+        $this->challenge = $challenge;
         $folder    = 'polls/' . $this->challenge;
         $allTime   = 'polls/alltime/';
         $scan      = scandir("$folder/");
@@ -24,8 +19,8 @@ class Scoreboard {
           if (!is_dir("$folder/$file")) {
             $content = file_get_contents("$folder/$file");
             $content = json_decode($content);
-            $array = get_object_vars($content);
-            $array = $this->points($array);
+            $array   = get_object_vars($content);
+            $array   = $this->points($array);
             foreach ($array as $key => $value) {
                 $value = $value == '' ? 0 : $value;
                 $dashBoard[$key] += $value;

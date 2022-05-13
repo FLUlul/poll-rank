@@ -5,6 +5,11 @@ class Loader {
 
     public function __construct() {
 
+        $this->start();
+    }
+
+    public function start() {
+
         $this->redirectHome();
         $this->route();
         $this->getView();
@@ -21,7 +26,9 @@ class Loader {
 
     public function route() {
 
-        $this->route = $_GET['route'];
+        $route = $_GET['route'];
+        $route = explode('/', $route);
+        $this->route = $route[0];
     }
 
     public function getView() {
