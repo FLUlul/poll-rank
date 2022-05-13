@@ -65,6 +65,7 @@ $("#sendBtn").click(function() {
         select.addClass('positions');
         option.attr('selected', true);
         option.html('Position');
+        option.attr('value', '');
         
         div.append(label)
         div.append(select);

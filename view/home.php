@@ -11,3 +11,4 @@
 </div>
 
 <div id="form_container"></div>
+<a class="btn" href="<?php  echo ALLTIME ?>">Totals</a>
