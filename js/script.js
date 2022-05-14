@@ -15,11 +15,11 @@ let partecipants = [
 let challeges = [
     {
         'key' : 'CloudWord',
-        'value' : false,
+        'value' : true,
     },
     {
         'key' : 'ImportFileIntoDb',
-        'value' : false,
+        'value' : true,
     },
     {
         'key' : 'noname',
@@ -43,7 +43,7 @@ $('.btn-view').click(function() {
     let href = $(this).attr('data-score');
     let challengeVal = $('.scoreboard .challenges').val();
     if (challengeVal !== null) {
-        window.location.href = href + '&challenge=' + challengeVal;
+        window.location.href = href + '/dashboard/' + challengeVal;
     }
 });
 
@@ -95,7 +95,7 @@ $("#sendBtn").click(function() {
         option.attr('selected', true);
         option.html('Position');
         option.attr('value', '');
-        
+
         div.append(label)
         div.append(select);
         select.append(option);

@@ -3,6 +3,7 @@
 <head>
     <?php
     require 'loader.php';
+    include 'route.php';
     $loader = new loader();
 
     if (is_file($loader->controller_path)) {
