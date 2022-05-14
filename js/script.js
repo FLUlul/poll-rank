@@ -48,16 +48,30 @@ $('.btn-view').click(function() {
 });
 
     $(partecipants).each(function(index, partecipant) {
-    createOption(partecipant, partecipant, '#userNames');
+    createOption({
+        select  : '#userNames',
+        value   : partecipant,
+        label   : partecipant
+    });
 });
-
 $(challeges).each(function(index, value) {
     if (value.value) {
-        createOption(`${index+1} - ${value.key}`, value.key, '.challenges');
+        createOption({
+            label : `${index+1} - ${value.key}`,
+            value : value.key,
+            select: '.challenges'
+        });
     } else {
-        createOption(`${index+1} - ${value.key}`, value.key, '.challenges', false, true);
+        createOption({
+            label   : `${index+1} - ${value.key}`,
+            value   : value.key,
+            select  : '.challenges',
+            disabled: true
+        });
     }
 });
+$('.scoreboard .challenges option').attr('disabled', false);
+
 
 $("#sendBtn").click(function() {
     let userValue = $('#userNames').val().toLowerCase();
@@ -93,20 +107,26 @@ $("#sendBtn").click(function() {
     });
 
     $(positions).each(function(index){
-        createOption(`${index+1}&deg;`, index+1, '.positions');
+        createOption({
+            label: `${index+1}&deg;`,
+            value: index+1,
+            select: '.positions'
+        });
     });
 
     $('.positions').change(function() {
         $(this).attr('id', $(this).val());
-        var allSelects = document.querySelectorAll(".positions");
+
+        $('.positions option').show();
+
         let selected = [];
-        $(allSelects).each(function(index, select) {
+        $('.positions').each(function(index, select) {
             if (!selected.includes(select.id)) {
                 selected.push(select.id);
             }
-            if (!selected.includes($('.positions option[style="display: none;"]').val())) {
+            /* if (!selected.includes($('.positions option[style="display: none;"]').val())) {
                 $('.positions option[style="display: none;"]').show();
-            }
+            } */
             if (selected.includes(select.id)) {
                 $('.positions option[value="' + select.id + '"]').hide();
             }
@@ -130,16 +150,17 @@ $("#sendBtn").click(function() {
 });
 
 /* FUNCTIONS */
-function createOption(label, value, select, selected = false, disabled = false) {
+/* function createOption(label, value, select, selected = false, disabled = false) { */
+function createOption(params) {
     let options = [];
     let option = $('<option>');
-    option.val(value);
-    option.html(label);
-    option.attr('selected', selected);
-    option.attr('disabled', disabled);
+    option.val(params.value);
+    option.html(params.label);
+    option.attr('selected', params.selected);
+    option.attr('disabled', params.disabled);
 
-    options[value] = option;
-    updateSelect(select, options);
+    options[params.value] = option;
+    updateSelect(params.select, options);
 }
 function updateSelect(select, options) {
     for(let option in options) {
