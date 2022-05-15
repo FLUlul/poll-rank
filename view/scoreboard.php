@@ -4,7 +4,8 @@
             <?php  echo $controller->challenge?>
         </th>
     </tr>
-    <?php foreach ($controller->dashBoard as $key => $value) { ?>
+
+    <?php foreach (c as $key => $value) { ?>
         <tr class="partecipant-row">
             <th>
                 <?php echo $key ?>
@@ -14,6 +15,13 @@
             </td>
         </tr>
     <?php }?>
-</table>
+    <?php if(!isset($controller->dashBoard)) { ?>
+    <tr>
+        <td>
+        Non ha votato ancora nessuno!!!!
+        </td>
+    </tr>
+    <?php }?>
+    </table>
 <a class="btn" href="<?php  echo HOME ?>">Home</a>
 <a class="btn" href="<?php  echo ALLTIME ?>">Totals</a>
