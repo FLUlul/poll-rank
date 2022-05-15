@@ -26,6 +26,7 @@ class Route {
     }
 
     public function callFunction(string $name, array $arg = null) {
+
         $arg = implode($arg, ', ');
         if(isset($arg)) {
             $this->$name($arg);

@@ -20,5 +20,5 @@ define('SCOREBOARD', $scoreboard);
 define('ALLTIME', $alltime);
 define('VIEW_PATH', 'view/');
 define('CSS_PATH', 'css/');
-define('CLASS_PATH' , 'class/');
+define('CLASS_PATH' , 'controller/');
 define('BASE_URL' , $base_url);

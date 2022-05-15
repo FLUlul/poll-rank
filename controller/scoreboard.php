@@ -15,18 +15,28 @@ class Scoreboard extends Route {
         $scan      = scandir("$folder/");
         $dashBoard = [];
 
-        foreach($scan as $file) {
-          if (!is_dir("$folder/$file")) {
-            $content = file_get_contents("$folder/$file");
-            $content = json_decode($content);
-            $array   = get_object_vars($content);
-            $array   = $this->points($array);
-            foreach ($array as $key => $value) {
-                $value = $value == '' ? 0 : $value;
-                $dashBoard[$key] += $value;
-            };
+        if(count($scan) <= 2) {
+
+            $pathFileAlltime = 'polls/alltime/' . $this->challenge . '.json';
+            $scan            = scandir("polls/alltime/");
+            $content         = file_get_contents($pathFileAlltime);
+            $content         = json_decode($content);
+            $dashBoard       = $content;
+        } else {
+
+            foreach($scan as $file) {
+                if (!is_dir("$folder/$file")) {
+                    $content = file_get_contents("$folder/$file");
+                    $content = json_decode($content);
+                    $array   = get_object_vars($content);
+                    $array   = $this->points($array);
+                    foreach ($array as $key => $value) {
+                        $value = $value == '' ? 0 : $value;
+                        $dashBoard[$key] += $value;
+                    };
+                }
+            }
         }
-    }
 
         arsort($dashBoard);
 
