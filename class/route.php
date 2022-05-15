@@ -22,7 +22,9 @@ class Route {
             }
         }
 
-        $this->callFunction($funcName, $funcArg);
+        if(isset($funcName)) {
+            $this->callFunction($funcName, $funcArg);
+        }
     }
 
     public function callFunction(string $name, array $arg = null) {

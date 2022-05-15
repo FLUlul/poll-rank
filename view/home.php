@@ -1,6 +1,6 @@
 <button class="btn btn-vote">Vote</button>
 <button class="btn btn-scoreboard">Scoreboard</button>
-<a class="btn btn-totals" href="<?php  echo ALLTIME ?>">Totals</a>
+<a class="btn btn-totals" href="<?php  echo SCOREBOARD . '/alltime' ?>">Totals</a>
 
 <div class="vote d-none">
     <select name="userNames" id="userNames">

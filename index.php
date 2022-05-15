@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <?php
-    require 'loader.php';
-    include 'route.php';
+    require 'class/loader.php';
+    include 'class/route.php';
     $loader = new loader();
 
     if (is_file($loader->controller_path)) {
