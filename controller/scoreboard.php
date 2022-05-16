@@ -70,6 +70,8 @@ class Scoreboard extends Route {
                 };
             }
         }
+
+        $dashBoard = (array) $dashBoard;
         arsort($dashBoard);
 
         /* if (!is_file('polls/totalScore')) {
@@ -79,7 +81,7 @@ class Scoreboard extends Route {
         $data = json_encode($dashBoard);
         file_put_contents('polls/totalScore.json', $data);
 
-        $this->dashBoardTotals = $dashBoard;
+        $this->dashBoard = $dashBoard;
     }
 
     public function points(array $array) {
