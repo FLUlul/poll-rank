@@ -38,8 +38,8 @@ class Scoreboard extends Route {
             }
         }
 
+        $dashBoard = (array) $dashBoard;
         arsort($dashBoard);
-
 
         if (!is_file($allTime . $this->challenge)) {
           mkdir($allTime . '/', 0755, true);

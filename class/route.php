@@ -16,7 +16,6 @@ class Route {
         for ($i=1; $i<=$index  ; $i++) {
             if ($i === 1) {
                 $funcName = $urlParams[$i];
-
             } else {
                 $funcArg[] = $urlParams[$i];
             }
@@ -28,8 +27,7 @@ class Route {
     }
 
     public function callFunction(string $name, array $arg = null) {
-
-        $arg = implode($arg, ', ');
+        $arg = implode(', ', $arg);
         if(isset($arg)) {
             $this->$name($arg);
         } else {
