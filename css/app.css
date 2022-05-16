@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:80vh;
+    height:100vh;
 }
 
 .d-none {
@@ -26,7 +26,9 @@ body {
 }
 
 h1 {
-    height: 20vh;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
     text-align: center;
     font-size: 7rem;
     font-family: 'Macondo', cursive;

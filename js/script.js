@@ -15,11 +15,11 @@ let partecipants = [
 let challeges = [
     {
         'key' : 'CloudWord',
-        'value' : true,
+        'value' : false,
     },
     {
         'key' : 'ImportFileIntoDb',
-        'value' : true,
+        'value' : false,
     },
     {
         'key' : 'noname',

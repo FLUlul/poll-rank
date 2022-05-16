@@ -35,7 +35,7 @@
         POLL SCORE
     </h1>
     <div class="container">
-    <?php include($loader->view_path); ?>
+        <?php include($loader->view_path); ?>
     </div>
 </body>
 </html>
