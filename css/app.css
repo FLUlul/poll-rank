@@ -14,11 +14,30 @@ body {
     background: radial-gradient(circle, rgb(0, 84, 240) 0%, rgba(0, 51, 145, 1) 26%, rgba(0,0,0,1) 100%);
 }
 
-.container {
+nav {
+    height : 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100vh;
+}
+
+nav h4 {
+    margin-right: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 25vh 0;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    align-items: center;
 }
 
 .d-none {
@@ -72,9 +91,9 @@ h4 {
         height: 15vh;
     }
 
-    .container {
+    /* .content {
         height: 85vh;
-    }
+    } */
 }
 
 @media all and (max-width:570px) {
@@ -89,7 +108,7 @@ h4 {
         height: 10vh;
     }
 
-    .container {
+    /* .content {
         height: 90vh;
-    }
+    } */
 }

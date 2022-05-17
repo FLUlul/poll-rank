@@ -3,11 +3,15 @@
 <head>
     <?php
     session_start();
+    if(isset($_SESSION['session_id'])) {
+        $session_user = htmlspecialchars($_SESSION['session_user'], ENT_QUOTES, 'UTF-8');
+        $session_id = htmlspecialchars($_SESSION['session_id']);
+    };
     require 'class/loader.php';
     include 'class/route.php';
     $loader = new loader();
 
-    if (is_file($loader->controller_path)) {
+    if(is_file($loader->controller_path)) {
         include($loader->controller_path);
         $controller = new $loader->route;
     }
@@ -35,8 +39,18 @@
     <h1>
         POLL SCORE
     </h1>
+
     <div class="container">
-        <?php include($loader->view_path); ?>
+        <?php if(isset($_SESSION['session_id'])) {?>
+        <nav>
+            <h4>Benvenuto <?php echo $session_user?></h4>
+            <a class="btn btn-logout" href="<?php  echo AUTH . '/logout' ?>" >Logout</a>
+        </nav>
+        <?php }?>
+
+        <section class="content">
+            <?php include($loader->view_path); ?>
+        </section>
     </div>
 </body>
 </html>
