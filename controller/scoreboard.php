@@ -51,7 +51,7 @@ class Scoreboard extends Route {
 
             $this->dashBoard = $dashBoard;
         } else {
-            $this->title = 'Non ha ancora votato nessuno, Mi dispiace \n Riprova più tardi.';
+            $this->title = 'Non ha ancora votato nessuno, Mi dispiace <br> Riprova più tardi.';
         }
     }
 
