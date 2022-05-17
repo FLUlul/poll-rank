@@ -42,10 +42,7 @@
 
     <div class="container">
         <?php if(isset($_SESSION['session_id'])) {?>
-        <nav>
-            <h4>Benvenuto <?php echo $session_user?></h4>
-            <a class="btn btn-logout" href="<?php  echo AUTH . '/logout' ?>" >Logout</a>
-        </nav>
+            <?php include VIEW_PATH . 'navbar.php'; ?>
         <?php }?>
 
         <section class="content">

@@ -25,7 +25,6 @@
             </tr>
         <?php }?>
     </table>
-    <a class="btn" href="<?php  echo HOME ?>">Home</a>
     <?php if($controller->title !== 'Total Score') { ?>
         <a class="btn" href="<?php  echo SCOREBOARD . '/alltime' ?>">Totals</a>
     <?php }?>
