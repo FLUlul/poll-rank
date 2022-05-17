@@ -11,5 +11,5 @@
     <h2>Login</h2>
     <input type="text" id="username" placeholder="Username" name="username">
     <input type="password" id="password" placeholder="Password" name="password">
-    <button class="btn-form" type="submit" name="login">Accedi</button>
+    <button class="btn" type="submit" name="login">Accedi</button>
 </form>

@@ -33,11 +33,11 @@ positions.length = partecipants.length - 1;
 
 $('.btn-vote').click(function() {
     $('.vote').toggleClass('d-none');
-    $('.btn-vote, .btn-scoreboard, .btn-totals').addClass('d-none');
+    $('.btn-vote, .btn-scoreboard, .btn-totals, .btn-logout').addClass('d-none');
 });
 $('.btn-scoreboard').click(function() {
     $('.scoreboard').toggleClass('d-none');
-    $('.btn-vote, .btn-scoreboard, .btn-totals').addClass('d-none');
+    $('.btn-vote, .btn-scoreboard, .btn-totals, .btn-logout').addClass('d-none');
 });
 $('.btn-view').click(function() {
     let href = $(this).attr('data-score');

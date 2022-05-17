@@ -12,12 +12,10 @@ if (isset($_SESSION['session_id'])) {
     <button class="btn btn-vote">Vote</button>
     <button class="btn btn-scoreboard">Scoreboard</button>
     <a class="btn btn-totals" href="<?php  echo SCOREBOARD . '/alltime' ?>">Totals</a>
+    <a class="btn btn-logout" href="<?php  echo AUTH . '/logout' ?>" >Logout</a>
     
     <div class="vote d-none">
         <h4>Select the challenge where you want to vote</h4><br>
-        <!-- <select name="userNames" id="userNames">
-            <option value="" disabled selected hidden><?php echo $session_user ?></option>
-        </select> -->
         <div id="authUser" data-user='<?php echo $session_user ?>'></div>
     
         <select name="challenges" class="challenges">
