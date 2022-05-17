@@ -11,7 +11,6 @@ class Auth extends Route {
 
         parent::connect();
         session_start();
-
         if (isset($_SESSION['session_id'])) {
                 header('Location:' . HOME);
             exit;
@@ -121,7 +120,7 @@ class Auth extends Route {
         if (isset($_SESSION['session_id'])) {
             unset($_SESSION['session_id']);
         }
-        header('Location:' . HOME);
+        header('Location:' . AUTH);
         exit;
     }
 }

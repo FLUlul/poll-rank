@@ -74,7 +74,8 @@ $('.scoreboard .challenges option').attr('disabled', false);
 
 
 $("#sendBtn").click(function() {
-    let userValue = $('#userNames').val().toLowerCase();
+    let userValue = $('#authUser').attr('data-user').toLowerCase();
+    console.log(userValue);
     let challengeValue = $('.challenges').val();
 
     $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);

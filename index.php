@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <?php
+    session_start();
     require 'class/loader.php';
     include 'class/route.php';
     $loader = new loader();
