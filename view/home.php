@@ -26,4 +26,4 @@
     <a class="btn" href="<?php  echo HOME ?>">&#xab;</a>
 </div>
 
-<div id="form_container"></div>
+<div id="form_container" data-home="<?php echo HOME ?>"></div>

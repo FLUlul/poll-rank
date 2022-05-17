@@ -80,7 +80,10 @@ $("#sendBtn").click(function() {
     $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);
     $('#form_container').html('');
     $('#form_container').append(`
-        <form action="server.php?savePoll=true&user=${userValue}&challenge=${challengeValue}" method="post" id="votation"></form>
+        <form action="server.php?savePoll=true&user=${userValue}&challenge=${challengeValue}" method="post" id="form_votation">
+            <section id="votation"></section>
+            <section id="buttons"></section>
+        </form>
     `);
 
     $(partecipants).each(function(index, partecipant) {
@@ -133,11 +136,12 @@ $("#sendBtn").click(function() {
         });
     });
 
-    $('#votation').append('<button type="submit" class="btn">Send</button>');
-    $('.container').append('<button id="refresh" class="btn">&#8635;</button>');
-    $('#refresh').click(function() {
-        location.reload();
-    });
+    let homeRoute = $('#form_container').attr('data-home');
+
+    $('#buttons').append('<button type="submit" class="btn">Send</button>');
+
+    $('#buttons').append('<a id="refresh" href="'+homeRoute+'" class="btn">&#8635;</a>');
+
     /* let url = window.location.href + 'server.php/'; */
 
     axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)

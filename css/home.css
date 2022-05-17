@@ -2,11 +2,19 @@
     height: 50%;
 }
 
+#form_container form {
+    max-width: 40%;
+    margin: auto;
+}
+
 #form_container div {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 15px 0;
+    flex-grow: 1;
+    max-width: 50%;
+    padding: 0 10px;
 }
 
 #form_container div label {
@@ -19,7 +27,7 @@
 #form_container #votation{
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -33,8 +41,52 @@ select {
     margin: 0 10px;
 }
 
+#buttons {
+    text-align: center;
+}
+
 h4 {
     color: white;
     text-shadow: 1px 1px 3px black;
     text-align: center;
+}
+h1 {
+    top: -150px;
+    animation: .5s slideIn ease-in-out forwards 1s;
+}
+
+@keyframes slideIn {
+    75% {
+        top: 30px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
+@media all and (max-width:1440px) {
+    #form_container form {
+        max-width: 50%;
+    }
+}
+
+@media all and (max-width:1162px) {
+    #form_container form {
+        max-width: 60%;
+    }
+}
+
+@media all and (max-width:970px) {
+    #form_container form {
+        max-width: 80%;
+    }
+}
+
+@media all and (max-width:969px) {
+    #form_container #votation {
+        flex-direction: column;
+    }
+    #form_container #votation div{
+        max-width: none;
+    }
 }

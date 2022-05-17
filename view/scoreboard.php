@@ -19,7 +19,7 @@
     <?php if(!isset($controller->dashBoard)) { ?>
     <tr>
         <td>
-        Non ha votato ancora nessuno!!!!
+            Non ha votato ancora nessuno!!!!
         </td>
     </tr>
     <?php }?>

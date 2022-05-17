@@ -27,7 +27,6 @@ body {
 
 h1 {
     position: absolute;
-    top: -150px;
     width: 100%;
     z-index: -1;
     text-align: center;
@@ -35,17 +34,6 @@ h1 {
     font-family: 'Macondo', cursive;
     color: #fff;
     text-shadow: 1px 1px 5px black;
-
-    animation: .5s slideIn ease-in-out forwards 1s;
-}
-
-@keyframes slideIn {
-    75% {
-        top: 30px;
-    }
-    100% {
-        top: 0px;
-    }
 }
 
 .btn {
