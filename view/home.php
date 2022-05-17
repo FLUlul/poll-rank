@@ -9,7 +9,7 @@ if (isset($_SESSION['session_id'])) {
     echo "<br>";
     printf("%s", '<a href="'. AUTH . '/logout' . '">logout</a>');
 } else {
-    printf("Effettua il %s per accedere all'area riservata", '<a href="../login.html">login</a>');
+    printf("Effettua il %s per accedere all'area riservata", '<a href="'. AUTH .'">login</a>');
 }
 
 ?>
