@@ -3,6 +3,7 @@ table {
     border-collapse: collapse;
     width: 30%;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 table td, table th {
@@ -30,4 +31,8 @@ table td {
 
 div {
     text-align: center;
+}
+
+.content {
+    flex-direction: column;
 }

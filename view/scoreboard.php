@@ -16,14 +16,6 @@
                 </td>
             </tr>
         <?php }?>
-
-        <?php if(!isset($controller->dashBoard)) { ?>
-            <tr>
-                <td>
-                    Non ha votato ancora nessuno!!!!
-                </td>
-            </tr>
-        <?php }?>
     </table>
     <?php if($controller->title !== 'Total Score') { ?>
         <a class="btn" href="<?php  echo SCOREBOARD . '/alltime' ?>">Totals</a>

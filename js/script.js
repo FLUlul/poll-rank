@@ -128,9 +128,6 @@ $("#sendBtn").click(function() {
             if (!selected.includes(select.id)) {
                 selected.push(select.id);
             }
-            /* if (!selected.includes($('.positions option[style="display: none;"]').val())) {
-                $('.positions option[style="display: none;"]').show();
-            } */
             if (selected.includes(select.id)) {
                 $('.positions option[value="' + select.id + '"]').hide();
             }
@@ -143,19 +140,15 @@ $("#sendBtn").click(function() {
 
     $('#buttons').append('<a id="refresh" href="'+homeRoute+'" class="btn">&#8635;</a>');
 
-    /* let url = window.location.href + 'server.php/'; */
 
     axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
-    .then(function(res) {
-        /* console.log(res.data); */
-    })
+    .then(function(res) {})
     .catch(e => console.error(e));
 
     $(".vote").hide();
 });
 
 /* FUNCTIONS */
-/* function createOption(label, value, select, selected = false, disabled = false) { */
 function createOption(params) {
     let options = [];
     let option = $('<option>');

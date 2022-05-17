@@ -120,7 +120,7 @@ class Auth extends Route {
         if (isset($_SESSION['session_id'])) {
             unset($_SESSION['session_id']);
         }
-        header('Location:' . AUTH);
+        header('Location:' . HOME);
         exit;
     }
 }

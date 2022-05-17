@@ -38,17 +38,21 @@ class Scoreboard extends Route {
             }
         }
 
-        $dashBoard = (array) $dashBoard;
-        arsort($dashBoard);
+        if ($content) {
+            $dashBoard = (array) $dashBoard;
+            arsort($dashBoard);
 
-        if (!is_file($allTime . $this->challenge)) {
-          mkdir($allTime . '/', 0755, true);
-        };
+            if (!is_file($allTime . $this->challenge)) {
+                mkdir($allTime . '/', 0755, true);
+            };
 
-        $data = json_encode($dashBoard);
-        file_put_contents($allTime . $this->challenge . '.json', $data);
+            $data = json_encode($dashBoard);
+            file_put_contents($allTime . $this->challenge . '.json', $data);
 
-        $this->dashBoard = $dashBoard;
+            $this->dashBoard = $dashBoard;
+        } else {
+            $this->title = 'Non ha ancora votato nessuno, mortacci tua';
+        }
     }
 
     public function alltime() {
