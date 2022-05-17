@@ -34,4 +34,20 @@ class Route {
             $this->$name();
         }
     }
+
+    public function connect() {
+
+        $db_config = DB_ENGINE . ":host=".DB_HOST . ";dbname=" . DB_NAME;
+
+        try {
+            $this->pdo = new PDO($db_config, DB_USER, DB_PASSWORD, [
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
+            ]);
+
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        } catch (PDOException $e) {
+            exit("Impossibile connettersi al database: " . $e->getMessage());
+        }
+    }
 }
