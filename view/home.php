@@ -2,7 +2,10 @@
 
 if (isset($_SESSION['session_id'])) { ?>
 
+    <?php if (strtolower($session_user) != 'loris') { ?>
     <button class="btn btn-vote">Vote</button>
+    <?php } ?>
+
     <button class="btn btn-scoreboard">Scoreboard</button>
     <a class="btn btn-totals" href="<?php  echo SCOREBOARD . '/alltime' ?>">Totals</a>
     <!-- <a class="btn btn-logout" href="<?php  echo AUTH . '/logout' ?>" >Logout</a> -->
