@@ -17,13 +17,10 @@
             </tr>
         <?php }?>
     </table>
-    <?php if($controller->title !== 'Total Score') { ?>
-        <a class="btn" href="<?php  echo SCOREBOARD . '/alltime' ?>">Totals</a>
-    <?php }?>
 
 <?php } else { ?>
     <div>
         <h4>Login to see this page</h4><br>
-        <a class="btn" href="<?php  echo AUTH ?>">Login</a>
+        <a class="btn" href="<?php  echo HOME ?>">Login</a>
     </div>
 <?php } ?>
