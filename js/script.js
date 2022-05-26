@@ -22,7 +22,7 @@ let challeges = [
         'value' : false,
     },
     {
-        'key' : 'noname',
+        'key' : 'clickCounter',
         'value' : true,
     },
 ]
