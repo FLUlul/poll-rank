@@ -40,9 +40,9 @@ $('.btn-scoreboard').click(function() {
     $('.btn-vote, .btn-scoreboard, table, .btn-logout').addClass('d-none');
 });
 $('.btn-view').click(function() {
-    let href = $(this).attr('data-score');
-    let challengeVal = $('.scoreboard .challenges').val();
     if (challengeVal !== null) {
+        let href = $(this).attr('data-score');
+        let challengeVal = $('.scoreboard .challenges').val();
         window.location.href = href + '/dashboard/' + challengeVal;
     }
 });
@@ -75,77 +75,79 @@ $('.scoreboard .challenges option').attr('disabled', false);
 
 $("#sendBtn").click(function() {
     let userValue = $('#authUser').attr('data-user').toLowerCase();
-    console.log(userValue);
+
     let challengeValue = $('.challenges').val();
+    if (challengeValue !== null) {
+        
+        $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);
+        $('#form_container').html('');
+        $('#form_container').append(`
+            <form action="server.php?savePoll=true&user=${userValue}&challenge=${challengeValue}" method="post" id="form_votation">
+                <section id="votation"></section>
+                <section id="buttons"></section>
+            </form>
+        `);
 
-    $(this).attr('href', `server.php?user=${userValue}&challenge=${challengeValue}`);
-    $('#form_container').html('');
-    $('#form_container').append(`
-        <form action="server.php?savePoll=true&user=${userValue}&challenge=${challengeValue}" method="post" id="form_votation">
-            <section id="votation"></section>
-            <section id="buttons"></section>
-        </form>
-    `);
-
-    $(partecipants).each(function(index, partecipant) {
-        let div = $('<div>');
-        let label = $('<label>');
-        let select = $('<select>');
-        let option = $('<option>');
-
-        label.html(partecipant);
-        select.attr('name', partecipant);
-        select.addClass('positions');
-        option.attr('selected', true);
-        option.html('Position');
-        option.attr('value', '');
-
-        div.append(label)
-        div.append(select);
-        select.append(option);
-        $('#votation').append(div);
-
-        if (partecipant.toLowerCase() == userValue) {
-            div.addClass('d-none');
-        }
-    });
-
-    $(positions).each(function(index){
-        createOption({
-            label: `${index+1}&deg;`,
-            value: index+1,
-            select: '.positions'
-        });
-    });
-
-    $('.positions').change(function() {
-        $(this).attr('id', $(this).val());
-
-        $('.positions option').show();
-
-        let selected = [];
-        $('.positions').each(function(index, select) {
-            if (!selected.includes(select.id)) {
-                selected.push(select.id);
-            }
-            if (selected.includes(select.id)) {
-                $('.positions option[value="' + select.id + '"]').hide();
+        $(partecipants).each(function(index, partecipant) {
+            let div = $('<div>');
+            let label = $('<label>');
+            let select = $('<select>');
+            let option = $('<option>');
+    
+            label.html(partecipant);
+            select.attr('name', partecipant);
+            select.addClass('positions');
+            option.attr('selected', true);
+            option.html('Position');
+            option.attr('value', '');
+    
+            div.append(label)
+            div.append(select);
+            select.append(option);
+            $('#votation').append(div);
+    
+            if (partecipant.toLowerCase() == userValue) {
+                div.addClass('d-none');
             }
         });
-    });
-
-    let homeRoute = $('#form_container').attr('data-home');
-
-    $('#buttons').append('<button type="submit" class="btn">Send</button>');
-
-    $('#buttons').append('<a id="refresh" href="'+homeRoute+'" class="btn">&#8635;</a>');
-
-
-    axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
-    .then(function(res) {})
-    .catch(e => console.error(e));
-
-    $(".vote").hide();
+    
+        $(positions).each(function(index){
+            createOption({
+                label: `${index+1}&deg;`,
+                value: index+1,
+                select: '.positions'
+            });
+        });
+    
+        $('.positions').change(function() {
+            $(this).attr('id', $(this).val());
+    
+            $('.positions option').show();
+    
+            let selected = [];
+            $('.positions').each(function(index, select) {
+                if (!selected.includes(select.id)) {
+                    selected.push(select.id);
+                }
+                if (selected.includes(select.id)) {
+                    $('.positions option[value="' + select.id + '"]').hide();
+                }
+            });
+        });
+    
+        let homeRoute = $('#form_container').attr('data-home');
+    
+        $('#buttons').append('<button type="submit" class="btn">Send</button>');
+    
+        $('#buttons').append('<a id="refresh" href="'+homeRoute+'" class="btn">&#8635;</a>');
+    
+    
+        axios.get(`server.php?user=${userValue}&challenge=${challengeValue}`)
+        .then(function(res) {})
+        .catch(e => console.error(e));
+    
+        $(".vote").hide();
+    }
 });
 
 /* FUNCTIONS */
