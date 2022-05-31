@@ -40,9 +40,9 @@ $('.btn-scoreboard').click(function() {
     $('.btn-vote, .btn-scoreboard, table, .btn-logout').addClass('d-none');
 });
 $('.btn-view').click(function() {
-    if (challengeVal !== null) {
-        let href = $(this).attr('data-score');
-        let challengeVal = $('.scoreboard .challenges').val();
+    let challengeVal = $('.scoreboard .challenges').val();
+    let href = $(this).attr('data-score');
+    if (challengeVal !== '') {
         window.location.href = href + '/dashboard/' + challengeVal;
     }
 });
